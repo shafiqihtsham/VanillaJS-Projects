@@ -8,11 +8,12 @@ function myFunction(){
     if(div.style.display !== "block")
     {
         div.style.display = "block";
+        div.style.backgroundImage = "";
+        
     }
     else{
         div.style.display = ""; // "" means default value
     }
-
 
 
 }
@@ -20,26 +21,63 @@ function myFunction(){
 
 const mydiv = document.getElementById("upload");
 
-mydiv.ondragover = function(event){
-    event.preventDefault();
+mydiv.ondrop = function uploadImage (event){
+    
     mydiv.style.border = "1px dashed red";
-
+    fileList = event.dataTransfer.files;
+    readImage(fileList[0]);
+    
 }
 
-mydiv.ondrop = function(event){
-    event.preventDefault();
-    
 
+
+function readImage(file){
+    const reader = new FileReader();
+    reader.addEventListener('load', (event)=>{
+        
+        uploaded_image = event.target.result;
+        
+        const img = new Image();
+        
+        const height = "500px";
+        const width = "500px";
+        //const height = mydiv.clientHeight;
+        //const width = mydiv.clientWidth;
+
+        //img.setAttribute('style',`width: ${width}px; height: ${height}px`)
+
+        img.src = uploaded_image;
+        img.style.width = "5px";
+        img.style.height = "5px"; //slow for page loading but can modify easier
+        mydiv.appendChild(img);
+        
+        
+        document.querySelector("#upload").style.backgroundSize = "cover";
+        document.querySelector("#upload").style.backgroundImage = `url(${img.src})`;
+    })
+    reader.readAsDataURL(file);
 }
 
 
 
 mydiv.ondragend = function(event){
+    
     event.preventDefault();
-    mydiv.style.border = "";
-}
-function dragImage(){
-
+    
 }
 
+mydiv.ondragover = function(event){ 
+    event.preventDefault();
+}
 
+document.ondragover = function(event){ 
+    event.preventDefault();
+}
+
+document.ondrop = function(event){
+    event.preventDefault();
+}
+
+document.ondragend = function(event){
+    event.preventDefault();
+}
