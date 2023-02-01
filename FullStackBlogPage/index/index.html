@@ -1,46 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>Ed's Blog</title>
-</head>
-<body id="background"> 
+  </head>
+  <body id="background">
     <header id="top">
-     <h1 id="title">Ihtsham Shafiq</h1>   
-    <nav id="navbar">
-        <h2 class="link 1"> About Me</h2>
-        <h2 class="link 2"> My Projects</h2>
-        <h2 class="link 3"> Blogs</h2>
-        
-    </nav>
+      <h1 id="title">Ihtsham Shafiq</h1>
+      <nav id="navbar">
+        <h2 class="link 1">About Me</h2>
+        <h2 class="link 2">My Projects</h2>
+        <h2 class="link 3">Blogs</h2>
+      </nav>
     </header>
-    <section id = "plus">
-         
-            <button id = "newblog" onclick = "myFunction()">+</button>
-            
+    <section id="plus">
+      <button id="newblog" onclick="myFunction()">+</button>
     </section>
-    
-<div id="createBlog">
-    
-    <div class="heading">
-        <p id="headingtext">Create Blog</p>
-    </div>
-    
-        <form id="image-form">
-        <label id="firstlabel" for="myname">Title:</label><br>
-        <input type="text" name="myname" id="titleinput"><br>
-        <label id="firstlabel" for="myname">Description:</label><br>
-        <div id="description" ondrop = "uploadImage(event)">
-        </div>
-    
-        </form>
-</div>
-   
-</body>
-<footer id="bottom"></footer>
-<script src = "index.js"> </script>
-</html>
 
+    <div id="createBlog">
+      <div class="heading">
+        <p id="headingtext">Create Blog</p>
+      </div>
+
+      <form id="image-form">
+        <label id="firstlabel" for="myname">Title:</label><br />
+        <input type="text" name="myname" id="titleinput" /><br />
+        <label id="firstlabel" for="myname">Description:</label><br />
+        <textarea id="description"> </textarea>
+      </form>
+    </div>
+  </body>
+  <footer id="bottom"></footer>
+  <script src="index.js"></script>
+</html>
