@@ -64,16 +64,22 @@
 #image-form {
   background-color: #444443;
   padding: 2%;
-  overflow-y: inherit;
+  overflow-x:visible;
 }
 
-#firstlabel {
+#image-form:after {
+  content:'';
+  display:block; 
+  clear:both;
+}
+
+.inputlabel {
   color: white;
   font-size: 22px;
-  margin-left: 0.5rem;
+  margin-left: 0.2rem;
+  margin-bottom: 0.5rem;
   display: inline-block; /** use inline-block to make margin work with label**/
   margin-right: 0.5rem;
-  margin-top: 0.5rem;
 }
 
 #display-image-buttom {
@@ -87,6 +93,8 @@
   margin-right: auto;
 }
 
+
+
 #headingtext {
   margin-top: 0.4rem;
   margin-left: 0.5rem;
@@ -96,10 +104,36 @@
 }
 
 #description {
-  background-color: #ccc;
+  background-color: white;
+  border-radius: 1%;
+  border: 0px;
   resize: none;
   max-width: 95%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+#submitform{
+  cursor: pointer;
+  border: 0px;
+  font-size: 22px;
+  margin: 5px;
+  float:right; /** to make float right work use :after for parent div **/
+  margin-top: 0.5rem;
+  background-color: #444443;
+  color:white;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#cancelform{
+  cursor: pointer;
+  border: 0px;
+  font-size: 22px;
+  margin: 5px;
+  float:left; /** to make float right work use :after for parent div **/
+  margin-top: 0.5rem;
+  background-color: #444443;
+  color:white;
+  font-family: 'Times New Roman', Times, serif;
 }

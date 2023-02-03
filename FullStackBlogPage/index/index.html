@@ -26,10 +26,12 @@
       </div>
 
       <form id="image-form">
-        <label id="firstlabel" for="myname">Title:</label><br />
+        <label class="inputlabel" for="myname">Title:</label><br />
         <input type="text" name="myname" id="titleinput" /><br />
-        <label id="firstlabel" for="myname">Description:</label><br />
-        <textarea id="description"> </textarea>
+        <label class="inputlabel" for="myname">Description:</label><br />
+        <textarea id="description" rows="5" cols="35" maxlength="150"> </textarea>
+        <button id="cancelform">Cancel</button>
+        <button type="submit" id = "submitform" onsubmit="retrieveImage()">Submit</button>
       </form>
     </div>
   </body>
