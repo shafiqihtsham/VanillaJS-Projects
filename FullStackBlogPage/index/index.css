@@ -48,7 +48,7 @@
   font-size: 35px;
 }
 
-#createBlog {
+#blog-modal {
   height: 50%;
   max-width: fit-content;
   min-height: fit-content;
@@ -61,16 +61,16 @@
   display: none;
 }
 
-#image-form {
+#my-form {
   background-color: #444443;
   padding: 2%;
-  overflow-x:visible;
+  overflow-x: visible;
 }
 
-#image-form:after {
-  content:'';
-  display:block; 
-  clear:both;
+#my-form:after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .inputlabel {
@@ -91,9 +91,9 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border: 0px;
+  border-radius: 1%;
 }
-
-
 
 #headingtext {
   margin-top: 0.4rem;
@@ -114,26 +114,54 @@
   margin-right: auto;
 }
 
-#submitform{
+#submit-button {
   cursor: pointer;
   border: 0px;
   font-size: 22px;
   margin: 5px;
-  float:right; /** to make float right work use :after for parent div **/
+  float: right; /** to make float right work use :after for parent div **/
   margin-top: 0.5rem;
   background-color: #444443;
-  color:white;
-  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  text-decoration: underline;
 }
 
-#cancelform{
+#submit-button:hover {
+  color: lightblue;
+}
+
+#cancel-button {
   cursor: pointer;
   border: 0px;
   font-size: 22px;
   margin: 5px;
-  float:left; /** to make float right work use :after for parent div **/
+  float: left; /** to make float right work use :after for parent div **/
   margin-top: 0.5rem;
   background-color: #444443;
-  color:white;
-  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
 }
+
+#search-form {
+  width: 9rem;
+  height: 9rem;
+  border: 1px solid red;
+  background-size: 9rem 9rem;
+  background-repeat: no-repeat;
+}
+
+#imageElement {
+  max-width: 8rem;
+  max-height: 8rem;
+  border: 1px solid green;
+}
+
+#blogs {
+  display: flex;
+  flex-flow: row wrap;
+
+}
+
+
+

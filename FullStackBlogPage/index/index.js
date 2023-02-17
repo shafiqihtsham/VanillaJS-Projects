@@ -1,5 +1,5 @@
 function myFunction() {
-  var div = document.getElementById("createBlog");
+  var div = document.getElementById("blog-modal");
 
   //** div.style.display only checks for values set programatically by inline style  !== instead of === console.log(`entering myFunction. div.style.display is ${div.style.display}`);
   //above code uses template literal syntax
@@ -12,55 +12,62 @@ function myFunction() {
   }
 }
 
-const mydiv = document.getElementById("upload");
 
-mydiv.ondrop = function uploadImage(event) {
-  mydiv.style.border = "1px dashed red";
-  fileList = event.dataTransfer.files;
-  readImage(fileList[0]);
-};
-
-function readImage(file) {
-  const reader = new FileReader();
-  reader.addEventListener("load", (event) => {
-    uploaded_image = event.target.result;
-
-    const img = new Image();
-
-    const height = "500px";
-    const width = "500px";
-    //const height = mydiv.clientHeight;
-    //const width = mydiv.clientWidth;
-
-    //img.setAttribute('style',`width: ${width}px; height: ${height}px`)
-
-    img.src = uploaded_image;
-    img.style.width = "5px";
-    img.style.height = "5px"; //slow for page loading but can modify easier
-    mydiv.appendChild(img);
-
-    document.querySelector("#upload").style.backgroundSize = "cover";
-    document.querySelector("#upload").style.backgroundImage = `url(${img.src})`;
-  });
-  reader.readAsDataURL(file);
+function submit(){
+  window.close;
 }
+const form = document.querySelector("#my-form");
+const blogsSection = document.querySelector("#blogs");
+const formdiv = document.querySelector("#blog-modal");
 
-mydiv.ondragend = function (event) {
-  event.preventDefault();
-};
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // prevent form submission and page reload
 
-mydiv.ondragover = function (event) {
-  event.preventDefault();
-};
+  const title = event.target.elements["titleinput"].value;
+  const content = event.target.elements["description"].value;
 
-document.ondragover = function (event) {
-  event.preventDefault();
-};
+  // Create a new div element with the blog content
+  const blogDiv = document.createElement("div");
+  blogDiv.style.cssText = `
+  height: 9rem;
+  width: 9rem;
+  position: relative;
+  background-color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 2rem 2rem 2rem;
+  border-radius: 5%;
+  border: 1px solid gray;
+  z-index:-1;
+  text-align:center;
+`;
 
-document.ondrop = function (event) {
-  event.preventDefault();
-};
+  const blogCaption = document.createElement("p");
+  blogCaption.style.cssText=`
+  position: absolute;
+  top: 100%;
+  color:white;
+  font-family: "Times New Roman", Times, serif;
+  `
+  blogCaption.innerHTML = `${title}`;
 
-document.ondragend = function (event) {
-  event.preventDefault();
-};
+
+  blogDiv.appendChild(blogCaption);
+  // Append the new div to the blogs section
+  blogsSection.appendChild(blogDiv);
+  formdiv.style.display = 'none';
+  //var element = document.getElementsByClassName("blog-caption");
+  //console.log(element);
+  // Log a message to the console
+  //console.log("New blog added:", blogDiv);
+  
+});
+
+//form.addEventListener('submit', function(event) {              !--No Arrow Function --!
+
+//form.addEventListener('submit', (event) => {       !-- Arrow Function --!
+
+//form.addEventListener('submit', handleFormSubmit);  !-- No Arrow Function and Two Seperate Functions --!
+//function handleFormSubmit(event) {
+//  event.preventDefault();
