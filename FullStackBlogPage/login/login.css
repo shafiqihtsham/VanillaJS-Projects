@@ -1,0 +1,14 @@
+#background{
+    background-color: #222222;
+}
+
+#formdiv{
+    width: 99vw;
+    height: 98vh;
+    margin:0;
+    display:flex;
+}
+
+#loginform{
+    margin: auto;
+}

@@ -41,6 +41,7 @@ form.addEventListener("submit", function (event) {
   border: 1px solid gray;
   z-index:-1;
   text-align:center;
+  cursor:pointer;
 `;
 
   const blogCaption = document.createElement("p");
@@ -57,6 +58,8 @@ form.addEventListener("submit", function (event) {
   // Append the new div to the blogs section
   blogsSection.appendChild(blogDiv);
   formdiv.style.display = 'none';
+  const titleinput = document.getElementById("titleinput");
+  titleinput.value = '';
   //var element = document.getElementsByClassName("blog-caption");
   //console.log(element);
   // Log a message to the console
